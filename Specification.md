@@ -22,17 +22,17 @@
 ###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`'s within the `Deck`
 
 ##*2 The unshuffled deck*
-####An unshuffled deck will be in alphabetical suit order then for each suit in rank order ascending and starting from the Ace to King, like so:- 
+####An unshuffled deck will be in alphabetical suit order then for each suit in rank order ascending and starting from the Two to Ace, like so:- 
 	
 **`Clubs = ♣, Diamonds = ♦, Hearts = ♥, Spades = ♠`**
 	
 	Deck consists of
-		♣ with Ranks in order [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
-		♦ with Ranks in order [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
-		♥ with Ranks in order [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
-		♠ with Ranks in order [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K] 
+		♣ with Ranks in order [2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A]
+		♦ with Ranks in order [2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A]
+		♥ with Ranks in order [2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A]
+		♠ with Ranks in order [2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A] 
 		
-This means that the first `Card` from an `Unshuffled Deck` is an `Ace` of `Clubs` and the last `Card` is a `King` of `Spades`.
+This means that the first `Card` from an `Unshuffled Deck` is an `Two` of `Clubs` and the last `Card` is a `Ace` of `Spades`.
 		
 ##*3 Other cards*
 A `Deck` will not contain any `Joker`'s
