@@ -16,3 +16,12 @@ type Rank =
 type Card = Card of Suit*Rank
 
 type Deck = Card list
+
+
+let allSuits = [ Clubs; Diamonds; Hearts; Spades ]
+let allRanks = [ Two; Three;Four; Five; Six; Seven; Eight; Nine; Ten; Jack; Queen; King; Ace ]
+
+let newDeck =
+    [ for suit in allSuits do
+        for rank in allRanks do
+            yield Card (suit, rank) ]
