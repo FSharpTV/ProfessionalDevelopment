@@ -19,7 +19,7 @@ type Deck = Card list
 
 type ShuffledDeck = ShuffledDeck of Deck
 
-type Deal = ShuffledDeck -> ShuffledDeck * Card
+type Deal = ShuffledDeck -> ShuffledDeck * Card option
 
 let allSuits = [ Clubs; Diamonds; Hearts; Spades ]
 let allRanks = [ Two; Three;Four; Five; Six; Seven; Eight; Nine; Ten; Jack; Queen; King; Ace ]
@@ -33,5 +33,6 @@ let newDeck =
 let dealCard : Deal =
     fun deck ->
         match deck with
-        | ShuffledDeck d -> ShuffledDeck d, Card(Spades,Ace)
-
+        | ShuffledDeck (topCard::[])         -> ShuffledDeck [], Some topCard
+        | ShuffledDeck (topCard::restOfDeck) -> ShuffledDeck restOfDeck, Some topCard
+        | ShuffledDeck ([])                  -> ShuffledDeck [], None
