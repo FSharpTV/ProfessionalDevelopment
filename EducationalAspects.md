@@ -2,7 +2,7 @@
 
 During the individual lectures the educational points need to be pulled out and 2-3 of those points need to be communicated during each video lecture.
 
-#####Lecture One
+#####Lecture One - Talking Head
 * Describe the problem/situation 
 * Explain the type system and how it will benefit us
 * Explain the reasons why we should get to the very essence of the types we are modelling - make illegal states unrepresentable
