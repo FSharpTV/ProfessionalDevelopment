@@ -17,12 +17,12 @@
 	Nine, Ten, Jan, Queen, King
 
 ###`Card` - Combination of `Suit` and `Rank`	
-###`Deck` - A collection of `Card`'s (`unshuffled` more detail below)
+###`Deck` - A collection of `Card`s (`unshuffled` more detail below)
 ###`Deal` - The `Deal` is a action that operates on the `Deck` and takes the first `Card` within the `Deck`:
 
 	type Deal : ShuffledDeck -> Card
 
-###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`'s within the `Deck`
+###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
 
 ##*2 The unshuffled deck*
 ####An unshuffled deck will be in alphabetical suit order then for each suit in rank order ascending and starting from the Two to Ace, like so:- 
@@ -38,4 +38,4 @@
 This means that the first `Card` from an `Unshuffled Deck` is an `Two` of `Clubs` and the last `Card` is a `Ace` of `Spades`.
 		
 ##*3 Other cards*
-A `Deck` will not contain any `Joker`'s
+A `Deck` will not contain any `Joker`s
