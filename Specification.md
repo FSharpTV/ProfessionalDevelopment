@@ -20,7 +20,7 @@
 ###`Deck` - A collection of `Card`s (`unshuffled` more detail below)
 ###`Deal` - The `Deal` is a action that operates on the `Deck` and takes the first `Card` within the `Deck`:
 
-	type Deal : ShuffledDeck -> ShuffledDeck*Card
+	type Deal : ShuffledDeck -> ShuffledDeck*Card 
 
 ###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
 
