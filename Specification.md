@@ -24,6 +24,8 @@
 
 ###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
 
+	type Shuffle : Deck -> Deck 
+
 ##*2 The unshuffled deck*
 ####An unshuffled deck will be in alphabetical suit order then for each suit in rank order ascending and starting from the Two to Ace, like so:- 
 	
