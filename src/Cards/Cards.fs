@@ -27,10 +27,11 @@ let newDeck =
             yield Card (suit, rank) ]
 
 
-type Deal = Deck -> Deck*Card
+type Deal = Deck -> Deck*Card option
 
 let dealImpl deck = 
-  let top::rem = deck
-  rem, Card (Clubs,Ten)
+  match deck with
+  | top::rem -> rem, Some top
+  | [] -> [], None
 
 let dealCard : Deal = dealImpl
