@@ -25,3 +25,4 @@ let newDeck =
     [ for suit in allSuits do
         for rank in allRanks do
             yield Card (suit, rank) ]
+
