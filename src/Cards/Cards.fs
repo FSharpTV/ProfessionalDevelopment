@@ -26,3 +26,10 @@ let newDeck =
         for rank in allRanks do
             yield Card (suit, rank) ]
 
+
+type Deal = Deck -> Deck*Card
+
+let dealImpl deck = 
+  [], Card (Clubs,Ten)
+
+let dealCard : Deal = dealImpl
