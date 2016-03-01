@@ -6,21 +6,21 @@
 
 ####The common terms we will use are listed here:
 
-###`Suit` - which include:-
+####`Suit` - which include:-
 	
 	Clubs, Diamonds, Hearts and Spades
 	
-###`Rank` - A rank is the value of the card:-
+####`Rank` - A rank is the value of the card:-
 	
 	Ace, Two, Three, Four,
 	Five, Six, Seven, Eight,
 	Nine, Ten, Jan, Queen, King
 
-###`Card` - Combination of `Suit` and `Rank`	
-###`Deck` - A collection of `Card`s (`unshuffled` more detail below)
-###`Deal` - The `Deal` is a action that operates on the `Deck` and takes the first `Card` within the `Deck`:
+####`Card` - Combination of `Suit` and `Rank`	
+####`Deck` - A collection of `Card`s (`unshuffled` more detail below)
+####`Deal` - The `Deal` is a *action* that operates on the `Deck` and takes the first `Card` within the `Deck`
 
-###`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
+####`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
 
 ##*2 The unshuffled deck*
 ####An unshuffled deck will be in alphabetical suit order then for each suit in rank order ascending and starting from the Two to Ace, like so:- 
