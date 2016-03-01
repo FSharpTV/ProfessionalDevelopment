@@ -30,6 +30,7 @@ let newDeck =
 type Deal = Deck -> Deck*Card
 
 let dealImpl deck = 
-  [], Card (Clubs,Ten)
+  let top::rem = deck
+  rem, Card (Clubs,Ten)
 
 let dealCard : Deal = dealImpl
