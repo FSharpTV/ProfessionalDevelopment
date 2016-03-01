@@ -18,7 +18,7 @@
 
 ####`Card` - Combination of `Suit` and `Rank`	
 ####`Deck` - A collection of `Card`s (`unshuffled` more detail below)
-####`Deal` - The `Deal` is a *action* that operates on the `Deck` and takes the first `Card` within the `Deck` the remaining `Deck` shoud have 1 fewer `Card` in it.
+####`Deal` - The `Deal` is a *action* that operates on the `Deck` and takes the first `Card` within the `Deck`. The remaining `Deck` should have 1 fewer `Card` in it.
 
 ####`Shuffle` - The `Shuffle` is an action that operates on the `Deck` and randomly shuffles the `Card`s within the `Deck`
 
