@@ -1,3 +1,5 @@
 *.user*
 [Bb]in
 [Oo]bj
+*.exe
+src/[Pp]ackages
