@@ -35,3 +35,17 @@ let dealImpl deck =
   | [] -> [], None
 
 let dealCard : Deal = dealImpl
+
+let shuffle deck seed =
+  let rnd = System.Random(seed)
+  let rec shuffler unshuffled shuffled =
+    let count = unshuffled |> List.length
+    if count = 0 then 
+      shuffled
+    else
+      let index = rnd.Next(count)
+      let card = unshuffled.[index]
+      let newUnshuffled = unshuffled |> List.filter (fun c -> c <> card)
+      let newShuffled = card :: shuffled
+      shuffler newUnshuffled newShuffled
+  shuffler deck []
