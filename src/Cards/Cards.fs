@@ -21,18 +21,18 @@ type Deck = Card list
 let allSuits = [ Clubs; Diamonds; Hearts; Spades ]
 let allRanks = [ Two; Three;Four; Five; Six; Seven; Eight; Nine; Ten; Jack; Queen; King; Ace ]
 
-let newDeck =
+let newDeck : Deck =
     [ for suit in allSuits do
         for rank in allRanks do
             yield Card (suit, rank) ]
 
-
-type Deal = Deck -> Deck*Card option
+type ShuffledDeck = ShuffledDeck of Deck
+type Deal = ShuffledDeck -> ShuffledDeck*Card option
 
 let dealImpl deck = 
   match deck with
-  | top::rem -> rem, Some top
-  | [] -> [], None
+  | ShuffledDeck (top::rem) -> ShuffledDeck rem, Some top
+  | ShuffledDeck [] -> ShuffledDeck [], None
 
 let dealCard : Deal = dealImpl
 
@@ -41,7 +41,7 @@ let shuffle deck seed =
   let rec shuffler unshuffled shuffled =
     let count = unshuffled |> List.length
     if count = 0 then 
-      shuffled
+      ShuffledDeck shuffled
     else
       let index = rnd.Next(count)
       let card = unshuffled.[index]
