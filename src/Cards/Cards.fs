@@ -17,7 +17,6 @@ type Card = Card of Suit*Rank
 
 type Deck = Card list
 
-
 let allSuits = [ Clubs; Diamonds; Hearts; Spades ]
 let allRanks = [ Two; Three;Four; Five; Six; Seven; Eight; Nine; Ten; Jack; Queen; King; Ace ]
 
@@ -49,3 +48,6 @@ let shuffle deck seed =
       let newShuffled = card :: shuffled
       shuffler newUnshuffled newShuffled
   shuffler deck []
+
+let shuffledDeckSize (ShuffledDeck deck) =
+  List.length deck
