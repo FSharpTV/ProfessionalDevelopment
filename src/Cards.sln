@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{8EC5A553-2202-4EDD-9690-72A757C97623}"
+	ProjectSection(SolutionItems) = preProject
+		..\paket.dependencies = ..\paket.dependencies
+	EndProjectSection
+EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Cards", "Cards\Cards.fsproj", "{D30BF1C5-2347-4300-A704-A8C25AE6B355}"
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Cards.Tests", "Cards.Tests\Cards.Tests.fsproj", "{EE4E738F-67FB-4FB7-A474-E84765865742}"
