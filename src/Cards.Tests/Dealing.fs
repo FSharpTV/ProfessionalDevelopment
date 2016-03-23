@@ -1,7 +1,7 @@
-﻿module FSharp.TV.Cards.Tests
+﻿module FSharp.TV.Cards.Tests.Dealing
 
 open NUnit.Framework
-open Cards
+open FSharp.TV.Cards
 
 [<Test>]
 let ``Should return 51 cards when dealing a card from a new deck`` () =

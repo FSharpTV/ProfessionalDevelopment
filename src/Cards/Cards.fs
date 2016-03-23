@@ -6,6 +6,7 @@ type Card = Card of Suit*Rank
 type Deck = Card list
 type ShuffledDeck = ShuffledDeck of Deck
 type Deal = ShuffledDeck -> ShuffledDeck*Card option
+type Hand = Card list
 
 let allSuits = [ Clubs; Diamonds; Hearts; Spades ]
 let allRanks = [ Two; Three;Four; Five; Six; Seven; Eight; Nine; Ten; Jack; Queen; King; Ace ]

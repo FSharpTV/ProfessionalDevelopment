@@ -49,12 +49,17 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Dealing.fs" />
+    <Compile Include="Scoring.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
   <ItemGroup>
     <ProjectReference Include="..\Cards\Cards.fsproj">
       <Project>{D30BF1C5-2347-4300-A704-A8C25AE6B355}</Project>
       <Name>Cards</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cards.Poker\Cards.Poker.fsproj">
+      <Project>{79E1CEE3-A62E-4B1B-B233-1B0300763F82}</Project>
+      <Name>Cards.Poker</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
