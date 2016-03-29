@@ -5,19 +5,6 @@ open FSharp.TV.Cards.Poker.Scoring
 open NUnit.Framework
 open FsUnit
 
-[<Test>]
-let ``Should evaluate Player 2 to have the winning hand`` () =
-  // Arrange
-  // set up dealing
-  let hands = dealHands 2
-
-  // Act
-  // setup call to evaluate hands
-  let chosenWinner = evaluate hands
-
-  // Assert
-  chosenWinner |> should equal "Player 2"
-
 let shuffledDeck =
   ShuffledDeck
     [ Card (Hearts,Seven); Card (Clubs,Ten); Card (Clubs,Two);
@@ -38,6 +25,19 @@ let shuffledDeck =
       Card (Spades,Ten); Card (Clubs,Five); Card (Diamonds,Ten);
       Card (Clubs,Nine); Card (Clubs,King); Card (Spades,Ace);
       Card (Diamonds,Eight) ]
+
+[<Test>]
+let ``Should evaluate Player 2 to have the winning hand`` () =
+  // Arrange
+  // set up dealing
+  let hands = dealHands 3 shuffledDeck
+
+  // Act
+  // setup call to evaluate hands
+  let chosenWinner = evaluate hands
+
+  // Assert
+  fst chosenWinner |> should equal "Player 2"
 
 [<Test>]
 let ``Should deal 5 cards to each player`` () =
@@ -84,8 +84,7 @@ let ``The hand should be in a specific order`` () =
         Card (Hearts,Three); Card (Clubs,Four) ];
       [ Card (Clubs,Ten); Card (Clubs,Eight); Card (Diamonds,King);
         Card (Hearts,Five); Card (Spades,King) ];
-      [ Card (Clubs,Two); Card (Diamonds,Nine); Card (Clubs,Three);
-        Card (Diamonds,Jack); Card (Hearts,Eight)] ]  
+i 
   
   let unorderedHands = identifyPlayers unsortedHands
 

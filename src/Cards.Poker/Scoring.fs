@@ -50,7 +50,7 @@ let rankScore card =
 
 let identifyPlayers hands =
   hands
-  |> List.mapi (fun i h -> i%1 |> sprintf "Player %i", h)
+  |> List.mapi (fun i h -> i+1 |> sprintf "Player %i", h)
 
 let orderCardsInEachHand hands : (string*Hand) list =
   let sort (hand:Hand) =
@@ -59,9 +59,18 @@ let orderCardsInEachHand hands : (string*Hand) list =
   [ for hand in hands ->
     fst hand, sort (snd hand)] 
 
-let evaluate hands =
-  // identify player hand
-  // order cards in each hand
-  // order by highest hand
-  // choose highest player hand
-  "Player 2"
+let orderByHighestHand (hands:(string*Hand) list) =
+  // order them descending
+  // based upon the map of the rankscore of each card
+  // E.G. [13;6;4;3;2] > [12;11;4;3;2] > [11;10;9;7;6] > [11;8;6;5;3]
+  hands
+  |> List.sortByDescending (fun (_, h) -> h |> List.map rankScore)
+
+let chooseHighestPlayerHand (highestCards:(string*Hand) list) =
+  List.head highestCards
+
+let evaluate =
+  identifyPlayers
+  >> orderCardsInEachHand
+  >> orderByHighestHand
+  >> chooseHighestPlayerHand
