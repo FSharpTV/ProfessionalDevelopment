@@ -84,7 +84,8 @@ let ``The hand should be in a specific order`` () =
         Card (Hearts,Three); Card (Clubs,Four) ];
       [ Card (Clubs,Ten); Card (Clubs,Eight); Card (Diamonds,King);
         Card (Hearts,Five); Card (Spades,King) ];
-i 
+      [ Card (Clubs,Two); Card (Diamonds,Nine); Card (Clubs,Three);
+        Card (Diamonds,Jack); Card (Hearts,Eight) ] ]
   
   let unorderedHands = identifyPlayers unsortedHands
 
