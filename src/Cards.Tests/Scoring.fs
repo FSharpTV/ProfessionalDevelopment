@@ -95,3 +95,20 @@ let ``The hand should be in a specific order`` () =
 
   // Assert
   CollectionAssert.AreEqual(expected, actual)
+
+[<Test>]
+let ``Should return 4 of a Kind of Rank Queen`` () =
+
+  // Arrange
+  let hand = 
+    [ Card (Diamonds, Queen)
+      Card (Spades, Queen)
+      Card (Clubs, Ten)
+      Card (Hearts, Queen)
+      Card (Clubs, Queen) ]
+       
+  // Act
+  let result  = fourOfAKind hand
+
+  //Assert
+  result |> should be (equal (Queen, 4))
