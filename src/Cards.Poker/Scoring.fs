@@ -69,10 +69,11 @@ let orderByHighestHand (hands:(string*Hand) list) =
 let chooseHighestPlayerHand (highestCards:(string*Hand) list) =
   List.head highestCards
 
-let fourOfAKind hand =
+let ofAKind hand =
   hand
   |> List.countBy (fun (Card(_,r)) -> r)
   |> List.maxBy snd
+
 
 
 let evaluate =

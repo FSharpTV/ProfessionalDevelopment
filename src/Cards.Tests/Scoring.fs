@@ -108,7 +108,24 @@ let ``Should return 4 of a Kind of Rank Queen`` () =
       Card (Clubs, Queen) ]
        
   // Act
-  let result  = fourOfAKind hand
+  let result  = ofAKind hand
 
   //Assert
   result |> should be (equal (Queen, 4))
+
+[<Test>]
+let ``Should return 3 of a kind of Rank King`` () =
+
+  // Arrange
+  let hand = 
+    [ Card (Diamonds, King)
+      Card (Spades, King)
+      Card (Clubs, Ten)
+      Card (Hearts, King)
+      Card (Clubs, Five) ]
+
+  // Act
+  let result = ofAKind hand
+
+  // Assert
+  result |> should be (equal (King, 3))
