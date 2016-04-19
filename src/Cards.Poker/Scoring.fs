@@ -74,7 +74,21 @@ let ofAKind hand =
   |> List.countBy (fun (Card(_,r)) -> r)
   |> List.maxBy snd
 
+let (|FourOfAKind|_|) hand =
+  if ofAKind hand |> snd = 4
+  then Some hand
+  else None
 
+let (|ThreeOfAKind|_|) hand =
+  if ofAKind hand |> snd = 3
+  then Some hand
+  else None
+
+let identify hand =
+  match hand with
+  | FourOfAKind hand -> "four"
+  | ThreeOfAKind hand -> "three" // potential for fullhouse
+  | _ -> "no match" // Leave like this for now
 
 let evaluate =
   identifyPlayers

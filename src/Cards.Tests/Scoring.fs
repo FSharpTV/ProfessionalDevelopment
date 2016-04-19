@@ -129,3 +129,28 @@ let ``Should return 3 of a kind of Rank King`` () =
 
   // Assert
   result |> should be (equal (King, 3))
+
+[<Test>]
+let ``Should identify poker combinations`` () =
+  // Arrange
+  let threeKindHand = 
+    [ Card (Diamonds, King)
+      Card (Spades, King)
+      Card (Clubs, Ten)
+      Card (Hearts, King)
+      Card (Clubs, Five) ]
+
+  let fourKindHand = 
+    [ Card (Diamonds, King)
+      Card (Spades, King)
+      Card (Clubs, King)
+      Card (Hearts, King)
+      Card (Clubs, Five) ]
+
+  // Act
+  let idThreeHand = identify threeKindHand
+  let idFourHand = identify fourKindHand
+
+  // Assert
+  idThreeHand |> should equal "three"
+  idFourHand |> should equal "four"
