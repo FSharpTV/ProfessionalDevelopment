@@ -152,5 +152,5 @@ let ``Should identify poker combinations`` () =
   let idFourHand = identify fourKindHand
 
   // Assert
-  idThreeHand |> should equal "three"
-  idFourHand |> should equal "four"
+  idThreeHand |> should equal (ThreeOfAKindRating, threeKindHand)
+  idFourHand |> should equal  (FourOfAKindRating, fourKindHand)

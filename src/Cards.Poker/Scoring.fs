@@ -84,11 +84,18 @@ let (|ThreeOfAKind|_|) hand =
   then Some hand
   else None
 
+
+// This is where to start working
+type Rate =
+  | HighCardRating
+  | ThreeOfAKindRating
+  | FourOfAKindRating
+
 let identify hand =
   match hand with
-  | FourOfAKind hand -> "four"
-  | ThreeOfAKind hand -> "three" // potential for fullhouse
-  | _ -> "no match" // Leave like this for now
+  | FourOfAKind hand -> FourOfAKindRating, hand
+  | ThreeOfAKind hand -> ThreeOfAKindRating, hand // potential for fullhouse
+  | _ -> HighCardRating, hand // Leave like this for now
 
 let evaluate =
   identifyPlayers
