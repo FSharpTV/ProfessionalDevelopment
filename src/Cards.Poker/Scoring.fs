@@ -101,6 +101,10 @@ let mapToRatedHands (hands:(string*Hand) list) : (string * (Rate * Hand)) list =
   hands
   |> List.map (fun (player, hand) -> player, identify hand )
 
+let groupByRating (hands:(string*(Rate*Hand)) list) : (Rate * (string * (Rate * Hand)) list) list =
+  hands
+  |> List.groupBy (fun (_, (rate,_)) -> rate)
+
 let evaluate =
   identifyPlayers
   >> orderCardsInEachHand

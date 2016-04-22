@@ -179,3 +179,26 @@ let ``Players and ratings are identified`` () =
       "Player 3", HighCardRating
       "Player 4", HighCardRating
       "Player 5", ThreeOfAKindRating ]
+
+
+[<Test>]
+let ``The highest rated hands in this game are ThreeOfAKindRating`` () =
+  // Arrange
+  let hands =
+    [ [ Card (Hearts, Four);  Card (Clubs, Six);    Card (Hearts, Seven); Card (Spades, Eight);  Card (Clubs, King); ]
+      [ Card (Clubs, Two);    Card (Spades, Six);   Card (Hearts, Jack);  Card (Diamonds, Jack); Card (Clubs, Jack); ]
+      [ Card (Diamonds, Two); Card (Spades, Four);  Card (Hearts, Five);  Card (Spades, Nine);   Card (Clubs, Queen); ]
+      [ Card (Clubs, Three);  Card (Clubs, Four);   Card (Clubs, Seven);  Card (Hearts, Six);    Card (Hearts, Queen); ]
+      [ Card (Hearts, Two);   Card (Diamonds, Six); Card (Clubs, Ten);    Card (Hearts, Ten);    Card (Spades, Ten); ] ]
+
+  let identifiedAndRatedHands = (identifyPlayers >> mapToRatedHands) hands
+
+  // Act
+  let topHands =
+    groupByRating identifiedAndRatedHands
+    |> List.maxBy fst
+    |> fst
+
+  // Assert
+  topHands |> should equal ThreeOfAKindRating
+  
