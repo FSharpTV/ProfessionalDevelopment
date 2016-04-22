@@ -154,3 +154,28 @@ let ``Should identify poker combinations`` () =
   // Assert
   idThreeHand |> should equal (ThreeOfAKindRating, threeKindHand)
   idFourHand |> should equal  (FourOfAKindRating, fourKindHand)
+
+[<Test>]
+let ``Players and ratings are identified`` () =
+  // Arrange
+  let hands =
+    [ [ Card (Hearts, Four);  Card (Clubs, Six);    Card (Hearts, Seven); Card (Spades, Eight);  Card (Clubs, King); ]
+      [ Card (Clubs, Two);    Card (Spades, Six);   Card (Hearts, Jack);  Card (Diamonds, Jack); Card (Clubs, Jack); ]
+      [ Card (Diamonds, Two); Card (Spades, Four);  Card (Hearts, Five);  Card (Spades, Nine);   Card (Clubs, Queen); ]
+      [ Card (Clubs, Three);  Card (Clubs, Four);   Card (Clubs, Seven);  Card (Hearts, Six);    Card (Hearts, Queen); ]
+      [ Card (Hearts, Two);   Card (Diamonds, Six); Card (Clubs, Ten);    Card (Hearts, Ten);    Card (Spades, Ten); ] ]
+
+  let identifiedHands = identifyPlayers hands
+
+  // Act
+  let mappedHands = mapToRatedHands identifiedHands
+  let tagsAndRatings = mappedHands |> List.map (fun (tag, (rate,_)) -> tag, rate)
+
+  // Assert
+  tagsAndRatings 
+  |> should equal 
+    [ "Player 1", HighCardRating
+      "Player 2", ThreeOfAKindRating
+      "Player 3", HighCardRating
+      "Player 4", HighCardRating
+      "Player 5", ThreeOfAKindRating ]

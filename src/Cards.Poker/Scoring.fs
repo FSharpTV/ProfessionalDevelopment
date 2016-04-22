@@ -97,6 +97,10 @@ let identify hand =
   | ThreeOfAKind hand -> ThreeOfAKindRating, hand // potential for fullhouse
   | _ -> HighCardRating, hand // Leave like this for now
 
+let mapToRatedHands (hands:(string*Hand) list) : (string * (Rate * Hand)) list =
+  hands
+  |> List.map (fun (player, hand) -> player, identify hand )
+
 let evaluate =
   identifyPlayers
   >> orderCardsInEachHand
