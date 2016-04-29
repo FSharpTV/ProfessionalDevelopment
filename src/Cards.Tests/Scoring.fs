@@ -201,4 +201,33 @@ let ``The highest rated hands in this game are ThreeOfAKindRating`` () =
 
   // Assert
   topHands |> should equal ThreeOfAKindRating
-  
+
+[<Test>]
+let ``The highest hands within the rated group should be Player 3 and Player 4`` () =
+  // Arrange
+  let hands =
+    [ [ Card (Hearts, Two);   Card (Clubs, Four);   Card (Hearts, Six);   Card (Spades, Eight);  Card (Spades, Ten); ]
+      [ Card (Spades, Two);   Card (Spades, Three); Card (Spades, Six);   Card (Diamonds, Nine); Card (Clubs, Ten); ]
+      [ Card (Diamonds, Six); Card (Spades, Nine);  Card (Hearts, Seven); Card (Spades, Four);   Card (Clubs, Queen); ]
+      [ Card (Clubs, Six);    Card (Hearts, Four);  Card (Clubs, Seven);  Card (Hearts, Nine);   Card (Hearts, Queen); ]
+      [ Card (Clubs, Two);    Card (Hearts, Five);  Card (Clubs, Nine);   Card (Hearts, Ten);    Card (Spades, Jack); ] ]
+
+  let identifiedAndRatedGroups = (identifyPlayers >> orderCardsInEachHand >> mapToRatedHands >> groupByRating) hands
+
+  // Act
+  let topGroup = //: int list * (string * (Rate * Hand)) list =
+    identifiedAndRatedGroups
+    |> List.collect (fun ratedGroup -> groupByHandScore (snd ratedGroup) )
+    |> List.sortByDescending fst
+    |> List.head
+
+  let topHands = 
+    topGroup
+    |> snd
+    |> List.map (fun (tag,(_,_)) -> tag)
+   
+  printfn "%+A" topGroup
+
+  // Assert
+  topHands |> should contain "Player 3"
+  topHands |> should contain "Player 4"
